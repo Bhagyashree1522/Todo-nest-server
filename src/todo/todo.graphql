@@ -1,0 +1,30 @@
+type Todo {
+  id: String!
+  title: String!
+  deadline: String!
+  comments: String!
+}
+
+input CreateTodoInput {
+  title: String!
+  deadline: String!
+  comments: String!
+}
+
+input UpdateTodoInput {
+  id: String!
+  title: String
+  deadline: String
+  comments: String
+}
+
+type Query {
+  todos: [Todo]!
+  todo(id: String!): Todo!
+}
+
+type Mutation {
+  createTodo(createTodoInput: CreateTodoInput!): Todo!
+  updateTodo(updateTodoInput: UpdateTodoInput!): Todo!
+  deleteTodo(id: String!): Todo
+}
